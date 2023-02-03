@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/font/fontawesome-free-6.0.0-web/css/all.min.css">
+    
+    
+    <title>Lora system</title>
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <nav class="header__nav">
+                <a class="header__nav-item">LORA</a>  
+            </nav>    
+            <p id="clockDiv"></p>
+            <script language='javascript'>
+                var myVar=setInterval(function(){Clock()},1000);
+                function Clock() {
+                a=new Date();
+                w=Array("Chủ Nhật","Thứ hai","Thứ ba","Thứ tư","Thứ năm","Thứ sáu","Thứ bảy");
+                var a=w[a.getDay()],
+                w=new Date,
+                d=w.getDate();
+                m=w.getMonth()+1;
+                y=w.getFullYear();
+                h=w.getHours();
+                mi=w.getMinutes();
+                se=w.getSeconds();
+                if(10>d){d="0"+d}
+                if(10>m){m="0"+m}
+                if(10>h){h="0"+h}
+                if(10>mi){mi="0"+mi}
+                if(10>se){se="0"+se}
+                document.getElementById("clockDiv").innerHTML=a+", "+d+"/"+m+"/"+y+" - "+h+":"+mi+":"+se+"";
+                }
+            </script>
+        </header>
+        <div class="thongso">
+            <div class="box">
+                <h3>TEMP</h3> 
+                <span id="temp">updating</span>
+                <span>℃</span>
+                <br>
+                <div class="cssicon1"><i class="fa-solid fa-temperature-high fa-4x"></i></div>
+            </div>
+            <div class="box">
+                <h3>HUMIDITY</h3> 
+                <span id="humidity">updating</span>
+                <span>%</span>
+                <br>
+                <div class="cssicon2"><i class="fa-solid fa-droplet fa-4x"></i></div>
+                
+            </div>
+            <div class="box">
+                <h3>RSSI</h3> 
+                <span id="rssi">updating</span>
+                <span>dBm</span>
+                <div class="cssicon2"><i class="fa-solid fa-rss fa-4x"></i></div>
+            </div>
+
+        </div>
+        <div class="device">
+            <div class="box">
+                <div class="den">
+                    <span >Đèn 1</span>
+                </div>
+                
+                <img src="./assets/image/light_off.png" height="100px"  id="light1" class="light1" alt=""><br>
+                <div>
+                    <button class="button" type="button" id="onlight1">ON</button>
+                    <button class="button" type="button" id="offlight1">OFF</button>
+                </div>
+              
+            </div>
+            
+            <div class="box">
+                <div class="den">
+                    <span >Đèn 2</span>
+                </div>
+                <img src="./assets/image/light_off.png" height="100px"  id="light2" class="light2" alt=""><br>
+                <div>
+                    <button class="button" type="button" id="onlight2">ON</button>
+                    <button class="button" type="button" id="offlight2">OFF</button>
+                </div>
+              
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script> 
+<script src="./assets/js/function.js"></script>
+
+</html>
